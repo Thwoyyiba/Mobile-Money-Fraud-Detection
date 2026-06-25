@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Fraud Detection System</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .container {
+
+            width: 450px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+
+        }
+
+
+        h2 {
+
+            text-align: center;
+
+        }
+
+
+        input, select {
+
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+
+            border: 1px solid #aaa;
+            border-radius: 5px;
+
+        }
+
+
+        button {
+
+            width: 100%;
+            padding: 12px;
+
+            background: green;
+            color: white;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 16px;
+
+        }
+
+
+        .result {
+
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+
+        }
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h2>
+💳 Mobile Money Fraud Detection
+</h2>
+
+
+
+<form action="/predict" method="POST">
+
+
+
+<label>Step</label>
+
+<input 
+type="number"
+name="step"
+placeholder="Step"
+required>
+
+
+
+<label>Transaction Type</label>
+
+<select name="type" required>
+
+<option value="PAYMENT">
+PAYMENT
+</option>
+
+<option value="TRANSFER">
+TRANSFER
+</option>
+
+<option value="CASH_OUT">
+CASH_OUT
+</option>
+
+<option value="DEBIT">
+DEBIT
+</option>
+
+<option value="CASH_IN">
+CASH_IN
+</option>
+
+</select>
+
+
+
+
+<label>Amount</label>
+
+<input 
+type="number"
+step="any"
+name="amount"
+placeholder="Amount"
+required>
+
+
+
+
+<label>Old Balance Origin</label>
+
+<input 
+type="number"
+step="any"
+name="oldbalanceOrg"
+placeholder="Old Balance Origin"
+required>
+
+
+
+
+<label>New Balance Origin</label>
+
+<input 
+type="number"
+step="any"
+name="newbalanceOrig"
+placeholder="New Balance Origin"
+required>
+
+
+
+
+<label>Old Balance Destination</label>
+
+<input 
+type="number"
+step="any"
+name="oldbalanceDest"
+placeholder="Old Balance Destination"
+required>
+
+
+
+
+<label>New Balance Destination</label>
+
+<input 
+type="number"
+step="any"
+name="newbalanceDest"
+placeholder="New Balance Destination"
+required>
+
+
+
+
+<label>Account Type</label>
+
+<input 
+type="number"
+name="Acct_type"
+placeholder="Account Type (0/1)"
+required>
+
+
+
+
+<label>Date of Transaction</label>
+
+<input 
+type="number"
+name="Date_of_transaction"
+placeholder="Date"
+required>
+
+
+
+
+<label>Time of Day</label>
+
+<input 
+type="number"
+name="Time_of_day"
+placeholder="Time"
+required>
+
+
+
+
+<label>Branch</label>
+
+<input 
+type="number"
+name="branch"
+placeholder="Branch"
+required>
+
+
+
+
+<label>Unusual Login</label>
+
+<input 
+type="number"
+name="unusuallogin"
+placeholder="Unusual Login (0/1)"
+required>
+
+
+
+<br><br>
+
+
+<button type="submit">
+
+Predict
+
+</button>
+
+
+
+</form>
+
+
+
+
+<div class="result">
+
+<h3>
+
+{{ prediction_text }}
+
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</body>
+
+</html>
